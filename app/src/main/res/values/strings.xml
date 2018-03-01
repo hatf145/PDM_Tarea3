@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Sesión 10 - Tabs &amp; Lists</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="product_a">Mac</string>
+    <string name="store_a">BestBuy</string>
+    <string name="phone_a">3414309315</string>
+    <string name="address_a">Río Lerma #1133</string>
+    <string name="description_a">Best Mac you can get!</string>
+
+    <string name="product_b">Alienware</string>
+    <string name="store_b">DELL</string>
+    <string name="phone_b">3411176669</string>
+    <string name="address_b">Bustamante #128</string>
+    <string name="description_b">Best PC you can get!</string>
+
+    <string name="product_c">Lanix</string>
+    <string name="store_c">Saint Jhonny</string>
+    <string name="phone_c">3414129465</string>
+    <string name="address_c">Independencia #25</string>
+    <string name="description_c">Great PC on a budget!</string>
+
+    <string name="fragementHome">This is the Home Fragment and it\'s empty as my heart.</string>
+    <string name="fragementElectronics">This is the Electronics Fragment and it\'s empty as my bank account.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
