@@ -33,7 +33,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     }
 
     @Override
-    public AdapterProduct.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_product, parent, false);
         ViewHolder vh = new ViewHolder(v);
@@ -86,6 +86,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 holder.mProductThumbnail.setImageResource(R.drawable.matador); break;
         }
 
+
         holder.mDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +101,25 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 Intent intent = new Intent(Intent.ACTION_DIAL,
                         Uri.parse("tel:" + mDataSet.get(position).getPhone()));
                 context.startActivity(intent);
+            }
+        });
+
+        holder.mProductImage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                ItemProduct itemProduct = new ItemProduct(
+                        mDataSet.get(position).getTitle(),
+                        mDataSet.get(position).getStore(),
+                        mDataSet.get(position).getLocation(),
+                        mDataSet.get(position).getPhone(),
+                        mDataSet.get(position).getImage(),
+                        mDataSet.get(position).getDescription(),
+                        mDataSet.get(position).getSeller(),
+                        mDataSet.get(position).getCode());
+
+                Intent intent = new Intent(context, ActivityProduct.class);
+                intent.putExtra("ITEM", itemProduct);
+                ((ActivityMain) context).startActivityForResult(intent, mDataSet.get(position).getCode());
             }
         });
     }

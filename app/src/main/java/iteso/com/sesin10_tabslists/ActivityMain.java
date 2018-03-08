@@ -1,5 +1,7 @@
 package iteso.com.sesin10_tabslists;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -41,6 +43,7 @@ public class ActivityMain extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    public FragmentTechnology fragmentTechnology;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,27 +132,6 @@ public class ActivityMain extends AppCompatActivity {
             recyclerView.setLayoutManager(mLayoutManager);
 
             ArrayList<ItemProduct> products = new ArrayList<>();
-            products.add(new ItemProduct(getResources().getString(R.string.product_a),
-                    getResources().getString(R.string.store_a),
-                    getResources().getString(R.string.address_a),
-                    getResources().getString(R.string.phone_a),
-                    0,
-                    getResources().getString(R.string.description_a),
-                    0));
-            products.add(new ItemProduct(getResources().getString(R.string.product_b),
-                    getResources().getString(R.string.store_b),
-                    getResources().getString(R.string.address_b),
-                    getResources().getString(R.string.phone_b),
-                    1,
-                    getResources().getString(R.string.description_b),
-                    1));
-            products.add(new ItemProduct(getResources().getString(R.string.product_c),
-                    getResources().getString(R.string.store_c),
-                    getResources().getString(R.string.address_c),
-                    getResources().getString(R.string.phone_c),
-                    2,
-                    getResources().getString(R.string.description_c),
-                    2));
 
             AdapterProduct adapterProduct = new AdapterProduct(getActivity(), products);
             recyclerView.setAdapter(adapterProduct);
@@ -171,7 +153,10 @@ public class ActivityMain extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FragmentTechnology();
+                    if(fragmentTechnology == null) {
+                        fragmentTechnology = new FragmentTechnology();
+                    }
+                    return fragmentTechnology;
                 case 1:
                     return new FragmentHome();
                 case 2:
@@ -197,4 +182,14 @@ public class ActivityMain extends AppCompatActivity {
             return null;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 0 || requestCode == 1 || requestCode == 2){
+            if(resultCode == Activity.RESULT_OK){
+                fragmentTechnology.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+    }
+
 }
