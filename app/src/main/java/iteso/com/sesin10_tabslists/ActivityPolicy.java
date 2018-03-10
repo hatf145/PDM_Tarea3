@@ -10,6 +10,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import iteso.com.sesin10_tabslists.tools.WebAppInterface;
+
 public class ActivityPolicy extends AppCompatActivity implements DialogInterface.OnKeyListener{
     WebView webView;
 
