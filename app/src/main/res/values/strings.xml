@@ -26,11 +26,18 @@
 
     <string name="save">Guardar</string>
     <string name="cancel">Cancel</string>
-    
+
     <string name="title">Título</string>
     <string name="store">Tienda</string>
     <string name="location">Ubicación</string>
     <string name="phone">Teléfono</string>
+
+    <string name="introduceUser">Ingresa tu usuario...</string>
+    <string name="introducePassword">Ingresa tu contraseña...</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="welcome">Bienvenido!</string>
+    <string name="privacypolicy">Privacy Policy</string>
+    <string name="logout">Log Out</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
