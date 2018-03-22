@@ -66,9 +66,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.mProductTitle.setText(mDataSet.get(position).getTitle());
-        holder.mProductStore.setText(mDataSet.get(position).getStore());
-        holder.mProductLocation.setText(mDataSet.get(position).getLocation());
-        holder.mProductPhone.setText(mDataSet.get(position).getPhone());
+        holder.mProductStore.setText(mDataSet.get(position).getStore().getName());
+        holder.mProductLocation.setText(mDataSet.get(position).getStore().getCity().getName() + ", Jalisco");
+        holder.mProductPhone.setText(mDataSet.get(position).getStore().getPhone());
         switch(mDataSet.get(position).getImage()){
             case 0:
                 holder.mProductImage.setImageResource(R.drawable.mac); break;
@@ -77,7 +77,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             case 2:
                 holder.mProductImage.setImageResource(R.drawable.lanix); break;
         }
-        switch(mDataSet.get(position).getSeller()){
+        switch(mDataSet.get(position).getStore().getId()){
             case 0:
                 holder.mProductThumbnail.setImageResource(R.drawable.bestbuy); break;
             case 1:
@@ -99,7 +99,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + mDataSet.get(position).getPhone()));
+                        Uri.parse("tel:" + mDataSet.get(position).getStore().getPhone()));
                 context.startActivity(intent);
             }
         });
@@ -108,14 +108,12 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             @Override
             public void onClick(View v){
                 ItemProduct itemProduct = new ItemProduct(
+                        mDataSet.get(position).getCode(),
                         mDataSet.get(position).getTitle(),
-                        mDataSet.get(position).getStore(),
-                        mDataSet.get(position).getLocation(),
-                        mDataSet.get(position).getPhone(),
-                        mDataSet.get(position).getImage(),
                         mDataSet.get(position).getDescription(),
-                        mDataSet.get(position).getSeller(),
-                        mDataSet.get(position).getCode());
+                        mDataSet.get(position).getImage(),
+                        mDataSet.get(position).getStore(),
+                        mDataSet.get(position).getCategory());
 
                 Intent intent = new Intent(context, ActivityProduct.class);
                 intent.putExtra("ITEM", itemProduct);

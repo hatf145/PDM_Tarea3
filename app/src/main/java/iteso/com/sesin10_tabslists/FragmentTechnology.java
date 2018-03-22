@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import iteso.com.sesin10_tabslists.beans.ItemProduct;
+import iteso.com.sesin10_tabslists.database.DatabaseHandler;
+import iteso.com.sesin10_tabslists.database.ItemProductControl;
 
 /**
  * Created by hecto on 28/02/2018.
@@ -36,32 +38,9 @@ public class FragmentTechnology extends android.support.v4.app.Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        myDataSet = new ArrayList<ItemProduct>();
-        myDataSet.add(new ItemProduct(
-                getResources().getString(R.string.product_a),
-                getResources().getString(R.string.store_a),
-                getResources().getString(R.string.address_a),
-                getResources().getString(R.string.phone_a),
-                0,
-                getResources().getString(R.string.description_a),
-                0,
-                0));
-        myDataSet.add(new ItemProduct(getResources().getString(R.string.product_b),
-                getResources().getString(R.string.store_b),
-                getResources().getString(R.string.address_b),
-                getResources().getString(R.string.phone_b),
-                1,
-                getResources().getString(R.string.description_b),
-                1,
-                1));
-        myDataSet.add(new ItemProduct(getResources().getString(R.string.product_c),
-                getResources().getString(R.string.store_c),
-                getResources().getString(R.string.address_c),
-                getResources().getString(R.string.phone_c),
-                2,
-                getResources().getString(R.string.description_c),
-                2,
-                2));
+        ItemProductControl itemProductControl = new ItemProductControl();
+        myDataSet = itemProductControl.getProductsByCategory(0,
+                DatabaseHandler.getInstance(getActivity()));
 
         mAdapter = new AdapterProduct(getActivity(), myDataSet);
         recyclerView.setAdapter(mAdapter);

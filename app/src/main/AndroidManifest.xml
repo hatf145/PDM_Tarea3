@@ -3,7 +3,7 @@
     package="iteso.com.sesin10_tabslists">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +15,10 @@
         <activity
             android:name=".ActivityMain"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ActivityProduct" />
-        <activity android:name=".ActivitySplash"
+        <activity
+            android:name=".ActivitySplash"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityLogin" />
-        <activity android:name=".ActivityPolicy"></activity>
+        <activity android:name=".ActivityPolicy" />
+        <activity android:name=".ActivityItem"></activity>
     </application>
 
 </manifest>

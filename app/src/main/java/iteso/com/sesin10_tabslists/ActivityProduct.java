@@ -48,9 +48,9 @@ public class ActivityProduct extends AppCompatActivity{
                             image.setImageResource(R.drawable.mac);
                 }
                 title.setText(myProduct.getTitle());
-                store.setText(myProduct.getStore());
-                location.setText(myProduct.getLocation());
-                phone.setText(myProduct.getPhone());
+                store.setText(myProduct.getStore().getName());
+                location.setText(myProduct.getStore().getCity().getName());
+                phone.setText(myProduct.getStore().getPhone());
             }
         }
 
@@ -59,9 +59,9 @@ public class ActivityProduct extends AppCompatActivity{
             public void onClick(View view){
                 myProductB = new ItemProduct();
                 myProductB.setTitle(title.getText().toString());
-                myProductB.setStore(store.getText().toString());
-                myProductB.setLocation(location.getText().toString());
-                myProductB.setPhone(phone.getText().toString());
+                myProductB.getStore().setName(store.getText().toString());
+                myProductB.getStore().getCity().setName(location.getText().toString());
+                myProductB.getStore().setPhone(phone.getText().toString());
                 myProductB.setCode(myProduct.getCode());
                 myProductB.setImage(myProduct.getImage());
 
